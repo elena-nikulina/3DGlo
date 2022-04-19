@@ -1,5 +1,5 @@
 const twoModule = () => {
-    const two = 'two.js';
+    const two = 'two1.js';
     console.log(two);
 }
 
