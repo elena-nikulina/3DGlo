@@ -2,33 +2,40 @@ let hello = document.getElementById('hello');
 let dayToday = document.getElementById('dayToday');
 let timeToday = document.getElementById('timeToday');
 let dayBeforeNewYear = document.getElementById('dayBeforeNewYear');
-
+let strNewYear = '';
+let strhello = '';
 let MyDate = new Date();
 let MyHours = MyDate.getHours();
-//console.log(MyHours);
+let myDay = MyDate.getDay();
+let dayArray = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+let today = '';
+
+function helloAll() {
 
 switch (true){
     case ((MyHours >= 5) && (MyHours < 11)):  
-        hello.innerHTML = 'Доброе утро!';
+        strhello = 'Доброе утро!';
         break;
     case ((MyHours >= 11) && (MyHours < 16)):
-        hello.innerHTML = 'Добрый день!';
+        strhello = 'Добрый день!';
         break;
     case ((MyHours >= 16) && (MyHours <= 23)):
-        hello.innerHTML = 'Добрый вечер!';
+        strhello = 'Добрый вечер!';
         break;
     case ((MyHours >= 0) && (MyHours < 5)):
-        hello.innerHTML = 'Доброй ночи!';
+        strhello = 'Доброй ночи!';
         break;
     default:
-        hello.innerHTML = 'Здравствуйте!';
+        strhello = 'Здравствуйте!';
         break;
+  }
+  return strhello;
 }
 
-let myDay = MyDate.getDay();
-let dayArray = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-
-dayToday.innerHTML = 'Сегодня: ' + dayArray[myDay];
+function myData() {
+  today = 'Сегодня: ' + dayArray[myDay];
+  return today;
+}
 
 function formatAMPM(date) {
     let hours = date.getHours();
@@ -40,8 +47,6 @@ function formatAMPM(date) {
     let strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
   }
-
-  timeToday.innerHTML = formatAMPM(new Date());
 
   function daysLeftNewYear() {
     let today = new Date();
@@ -65,7 +70,26 @@ function formatAMPM(date) {
     //Выводим надпись в документ
     if(daysLeft<0) {dayBeforeNewYear.innerHTML = "С новым годом!!!";}
      else {
-        dayBeforeNewYear.innerHTML = "До нового года осталось "+daysLeft+dayname+"!";}
+       strNewYear = "До нового года осталось "+daysLeft+dayname+"!";
+      }
+    return {daysLeft, strNewYear};
     }
-   
-    daysLeftNewYear();
+
+let updateTime = () => {
+  let getTimeNewYear = daysLeftNewYear();
+  let formattingAMPM = formatAMPM(new Date());
+  let setHello = helloAll();
+  let dayToday1 = myData();
+  
+  if (getTimeNewYear.daysLeft > 0) {
+      hello.innerHTML = setHello;
+     dayBeforeNewYear.innerHTML = getTimeNewYear.strNewYear;
+     timeToday.innerHTML = formattingAMPM;
+    dayToday.innerHTML = dayToday1;
+  } else {
+    clearInterval(timer1);
+  }
+ 
+  
+}
+let timer1 = setInterval(updateTime, 1000);

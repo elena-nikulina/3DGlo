@@ -30,14 +30,14 @@ const timer = (deadline) => {//oneModule
             timerMinutes.textContent = (getTime.minutes < 10 ? "0" : "") + getTime.minutes;
             timereconds.textContent = (getTime.seconds < 10 ? "0" : "") + getTime.seconds;
         } else {
-            window.clearInterval(timer1);
+            clearInterval(timer1);//window.clearInterval(timer1);
             timerHours.textContent = '00';
             timerMinutes.textContent = '00';
             timereconds.textContent = '00';
         }
     }
     //updateClock();
-    let timer1 = window.setInterval(updateClock, 1000);
+    let timer1 = setInterval(updateClock, 1000);
 
 }
 
