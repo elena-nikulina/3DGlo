@@ -9,6 +9,7 @@ let MyHours = MyDate.getHours();
 let myDay = MyDate.getDay();
 let dayArray = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 let today = '';
+let timer1;
 
 function helloAll() {
 
@@ -92,4 +93,4 @@ let updateTime = () => {
  
   
 }
-let timer1 = setInterval(updateTime, 1000);
+timer1 = setInterval(updateTime, 1000);

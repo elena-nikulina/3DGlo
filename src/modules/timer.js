@@ -1,5 +1,5 @@
 const timer = (deadline) => {//oneModule
-
+    let timer1;
     const timerHours = document.getElementById('timer-hours');
     const timerMinutes = document.getElementById('timer-minutes');
     const timereconds = document.getElementById('timer-seconds');
@@ -37,7 +37,7 @@ const timer = (deadline) => {//oneModule
         }
     }
     //updateClock();
-    let timer1 = setInterval(updateClock, 1000);
+    timer1 = setInterval(updateClock, 1000);
 
 }
 
