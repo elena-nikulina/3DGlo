@@ -17,7 +17,10 @@ const modal = () => {
 
 
                 if (width < 768) {
+                    modal1.style.display = 'block';
+                    modal1.style.opacity = 1;
                     clearInterval(idAnimate);
+                
                 }
         
                 if (count < 1) {
