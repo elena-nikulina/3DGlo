@@ -4,8 +4,8 @@ const modal = () => {
     const closeBtn = modal1.querySelector('.popup-close');
     const width = document.documentElement.clientWidth;
 
+    let  idAnimate;
     let count = 0;
-    console.log(closeBtn);
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -14,9 +14,9 @@ const modal = () => {
             
             const transperentModal = () => {
                 count = count + 0.01;
-                console.log(count);
 
-                if (width < 768 + 'px') {
+
+                if (width < 768) {
                     clearInterval(idAnimate);
                 }
         
