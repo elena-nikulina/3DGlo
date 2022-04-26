@@ -71,6 +71,8 @@ const validate = () => {
 
         if (/[а-яА-Я]+\-\s/g.test(form2Message.value)) {
             alert('В инпуте только кириллица, дефис и пробел');
+        } else {
+            isError2 = true;
         }
 
         if (!isError2) {

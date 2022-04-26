@@ -13,20 +13,16 @@ const modal = () => {
             modal1.style.display = 'block';
             
             const transperentModal = () => {
-                count = count + 0.01;
+                
 
 
-                if (width < 768) {
+                if (width > 768) {
+
+                    myAnimate();
+                
+                } else {
                     modal1.style.display = 'block';
                     modal1.style.opacity = 1;
-                    clearInterval(idAnimate);
-                
-                }
-        
-                if (count < 1) {
-                    modal1.style.opacity = count;
-                } else {
-                    clearInterval(idAnimate);
                 }
                 
         
@@ -40,7 +36,14 @@ const modal = () => {
         modal1.style.display = 'none';
     });
 
-    
+    function myAnimate() {
+        count = count + 0.01;
+        if (count < 1) {
+            modal1.style.opacity = count;
+        } else {
+            clearInterval(idAnimate);
+        }
+    }
 }
 
 module.exports = modal;
