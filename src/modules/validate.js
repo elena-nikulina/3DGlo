@@ -14,6 +14,19 @@ const validate = () => {
     let form3Phone = document.querySelector('#form3-phone');
     let form3Email = document.querySelector('#form3-email');
 
+    let forms = document.querySelectorAll('form');
+    //console.log(forms);
+
+    forms.forEach((form) => {
+        let inputs = form.querySelectorAll('input');
+        //console.log(inputs);
+        for(let input of inputs) {
+            if (input[type="text"]) {
+                console.log(input);
+            }
+        }
+    });
+
     calcSquare.addEventListener('input', (e) => {
 
         e.target.value = e.target.value.replace(/[^\d+]/g, "");
@@ -31,7 +44,9 @@ const validate = () => {
 
     });
 
-    form1.addEventListener('submit', (e) => {
+    
+
+    /*form1.addEventListener('submit', (e) => {
         e.preventDefault();
         let isError = false;
    
@@ -102,7 +117,7 @@ const validate = () => {
         }
 
 
-    });
+    });*/
 };
 
 module.exports = validate;

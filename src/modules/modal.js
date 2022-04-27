@@ -33,7 +33,9 @@ const modal = () => {
     });
 
     closeBtn.addEventListener('click', () => {
-        modal1.style.display = 'none';
+        modal1.style.display = '';
+        modal1.style.opacity = 0;
+        count = 0;
     });
 
     function myAnimate() {
