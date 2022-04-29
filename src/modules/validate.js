@@ -1,51 +1,42 @@
 const validate = () => {
 
-    let calcSquare = document.querySelector('.calc-square');
-    let calcCount = document.querySelector('.calc-count');
-    let calcDay = document.querySelector('.calc-day');
+    const calcSquare = document.querySelector('.calc-square');
+    const calcCount = document.querySelector('.calc-count');
+    const calcDay = document.querySelector('.calc-day');
     
     
 
-    let forms = document.querySelectorAll('form');
+    const forms = document.querySelectorAll('form');
 
-    let form2Message = document.querySelector('#form2-message');
-
-    form2Message.addEventListener('input', (e) => {
-
-    e.target.value = e.target.value.replace(/[^а-яА-Я+\-\s]+/g, "");
-
-});
     forms.forEach((form) => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-        });
-        let inputs = form.querySelectorAll('input');
-        let inputsText = form.querySelectorAll('input[type="text"]');
-        let inputsEmail = form.querySelectorAll('input[type="email"]');
-        let inputsPhone = form.querySelectorAll('input[type="tel"]');
+        
+        const inputText = form.querySelector('input[type="text"]');
+        const inputEmail = form.querySelector('input[type="email"]');
+        const inputPhone = form.querySelector('input[type="tel"]');
 
-        for(let inputText of inputsText) {
+        if (form.classList.contains('footer-form')) {
+            const inputMessage = form.querySelector('#form2-message');
+            inputMessage.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/[^а-яА-Я+\-\s]+/g, "");
+            });
+        }
 
             inputText.addEventListener('input', (e) => {
 
                 e.target.value = e.target.value.replace(/[^а-яА-Я+\-\s]+/g, "");
                 
             });
-        }
-        for(let inputEmail of inputsEmail) {
 
             inputEmail.addEventListener('input', (e) => {
                 e.target.value = e.target.value.replace(/[^a-zA-Z0-9+\_\@\-\!\*\~\'\.]+/g, "");
             });        
-        }
 
-        for(let inputPhone of inputsPhone) {
             inputPhone.addEventListener('input', (e) => {
 
                 e.target.value = e.target.value.replace(/[^\d\-()]/g, "");
                 
             });
-        }
+        //}
         
     });
 
@@ -68,4 +59,5 @@ const validate = () => {
 
 };
 
-module.exports = validate;
+//module.exports = validate;
+export default validate;
