@@ -13,9 +13,10 @@
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const timer = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");//one\r\nconst menu = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\r\nconst modal = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\r\nconst validate = __webpack_require__(/*! ./modules/validate */ \"./modules/validate.js\");\r\n\r\ntimer('23 april 2022');//one\r\nmenu();\r\nmodal();\r\nvalidate();\n\n//# sourceURL=webpack:///./index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_validate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/validate */ \"./modules/validate.js\");\n/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tabs */ \"./modules/tabs.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\nconst timer = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");//one\r\n//const menu = require('./modules/menu');\r\n//const modal = require('./modules/modal');\r\n//const validate = require('./modules/validate');\r\n\r\n\r\n\r\n\r\n\r\ntimer('23 april 2022');//one\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\r\n(0,_modules_validate__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n(0,_modules_tabs__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -23,9 +24,10 @@ eval("const timer = __webpack_require__(/*! ./modules/timer */ \"./modules/timer
 /*!*************************!*\
   !*** ./modules/menu.js ***!
   \*************************/
-/***/ ((module) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const menu = () => {\r\n    const menuBtn = document.querySelector('.menu');\r\n    const menu1 = document.querySelector('menu');\r\n    const closeBtn = menu1.querySelector('.close-btn');\r\n    const menuItems = menu1.querySelectorAll('ul>li>a');\r\n\r\n    const handleMenu = () => {\r\n        menu1.classList.toggle('active-menu');\r\n    }\r\n\r\n    menuBtn.addEventListener('click', handleMenu);\r\n\r\n    closeBtn.addEventListener('click', handleMenu);\r\n\r\n    menuItems.forEach(menuItem => {\r\n        menuItem.addEventListener('click', handleMenu);\r\n    });\r\n}\r\n\r\nmodule.exports = menu;\n\n//# sourceURL=webpack:///./modules/menu.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst menu = () => {\r\n    const menuBtn = document.querySelector('.menu');\r\n    const menu1 = document.querySelector('menu');\r\n\r\n    const handleMenu = () => {\r\n        menu1.classList.toggle('active-menu');\r\n    }\r\n\r\n\r\n    const toggleMenu = () => {\r\n        menu1.addEventListener('click', (e) => {\r\n            \r\n            if (e.target.classList.contains('close-btn') || e.target.closest('a')) {\r\n                \r\n                handleMenu();\r\n            }\r\n        });\r\n        menuBtn.addEventListener('click', handleMenu);\r\n    }\r\n\r\n    toggleMenu();\r\n}\r\n\r\n//module.exports = menu;\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menu);\n\n//# sourceURL=webpack:///./modules/menu.js?");
 
 /***/ }),
 
@@ -33,9 +35,21 @@ eval("const menu = () => {\r\n    const menuBtn = document.querySelector('.menu'
 /*!**************************!*\
   !*** ./modules/modal.js ***!
   \**************************/
-/***/ ((module) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const modal = () => {\r\n    const modal1 = document.querySelector('.popup');\r\n    const buttons = document.querySelectorAll('.popup-btn');\r\n    const closeBtn = modal1.querySelector('.popup-close');\r\n    const width = document.documentElement.clientWidth;\r\n\r\n    let  idAnimate;\r\n    let count = 0;\r\n\r\n    buttons.forEach(btn => {\r\n        btn.addEventListener('click', () => {\r\n            modal1.style.opacity = 0;\r\n            modal1.style.display = 'block';\r\n            \r\n            const transperentModal = () => {\r\n                \r\n\r\n\r\n                if (width > 768) {\r\n\r\n                    myAnimate();\r\n                \r\n                } else {\r\n                    modal1.style.display = 'block';\r\n                    modal1.style.opacity = 1;\r\n                }\r\n                \r\n        \r\n            }\r\n        \r\n            idAnimate = setInterval(transperentModal, 10);\r\n        });\r\n    });\r\n\r\n    closeBtn.addEventListener('click', () => {\r\n        modal1.style.display = '';\r\n        modal1.style.opacity = 0;\r\n        count = 0;\r\n    });\r\n\r\n    function myAnimate() {\r\n        count = count + 0.01;\r\n        if (count < 1) {\r\n            modal1.style.opacity = count;\r\n        } else {\r\n            clearInterval(idAnimate);\r\n        }\r\n    }\r\n}\r\n\r\nmodule.exports = modal;\n\n//# sourceURL=webpack:///./modules/modal.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst modal = () => {\r\n    const modal1 = document.querySelector('.popup');\r\n    const buttons = document.querySelectorAll('.popup-btn');\r\n    const width = document.documentElement.clientWidth;\r\n\r\n    let  idAnimate;\r\n    let count = 0;\r\n\r\n    buttons.forEach(btn => {\r\n        btn.addEventListener('click', () => {\r\n            modal1.style.opacity = 0;\r\n            modal1.style.display = 'block';\r\n            \r\n            const transperentModal = () => {\r\n                \r\n\r\n\r\n                if (width > 768) {\r\n\r\n                    myAnimate();\r\n                \r\n                } else {\r\n                    modal1.style.display = 'block';\r\n                    modal1.style.opacity = 1;\r\n                }\r\n                \r\n        \r\n            }\r\n        \r\n            idAnimate = setInterval(transperentModal, 10);\r\n        });\r\n    });\r\n\r\n    function myAnimate() {\r\n        count = count + 0.01;\r\n        if (count < 1) {\r\n            modal1.style.opacity = count;\r\n        } else {\r\n            clearInterval(idAnimate);\r\n        }\r\n    }\r\n\r\n    modal1.addEventListener('click', (e) => {\r\n\r\n        if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {\r\n            //console.log('мимо');\r\n            modal1.style.display = '';\r\n            modal1.style.opacity = 0;\r\n            count = 0;\r\n        }\r\n    });\r\n}\r\n\r\n//module.exports = modal;\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n//# sourceURL=webpack:///./modules/modal.js?");
+
+/***/ }),
+
+/***/ "./modules/tabs.js":
+/*!*************************!*\
+  !*** ./modules/tabs.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst tabs = () => {\r\n    const tabPanel = document.querySelector('.service-header');\r\n    const tabs = document.querySelectorAll('.service-header-tab');\r\n    const tabContent = document.querySelectorAll('.service-tab');\r\n\r\n    tabPanel.addEventListener('click', (e) => {\r\n        //console.log(e.target.closest('.service-header-tab'));\r\n        if (e.target.closest('.service-header-tab')) {\r\n            const tabBtn = e.target.closest('.service-header-tab');\r\n            //console.log(tabBtn);\r\n            tabs.forEach((tab, index) => {\r\n                if (tab === tabBtn) {\r\n                    tab.classList.add('active');\r\n                    tabContent[index].classList.remove('d-none');\r\n                } else {\r\n                    tab.classList.remove('active');\r\n                    tabContent[index].classList.add('d-none');\r\n                }\r\n            });\r\n        }\r\n    });\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabs);\n\n//# sourceURL=webpack:///./modules/tabs.js?");
 
 /***/ }),
 
@@ -53,9 +67,10 @@ eval("const timer = (deadline) => {//oneModule\r\n    let timer1;\r\n    const t
 /*!*****************************!*\
   !*** ./modules/validate.js ***!
   \*****************************/
-/***/ ((module) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const validate = () => {\r\n\r\n    let calcSquare = document.querySelector('.calc-square');\r\n    let calcCount = document.querySelector('.calc-count');\r\n    let calcDay = document.querySelector('.calc-day');\r\n    let form1 = document.querySelector('#form1');\r\n    let form2 = document.querySelector('#form2');\r\n    let form3 = document.querySelector('#form3');\r\n    let form1Name = document.querySelector('#form1-name');\r\n    let form1Email = document.querySelector('#form1-email');\r\n    let form1Phone = document.querySelector('#form1-phone');\r\n    let form2Email = document.querySelector('#form2-email');\r\n    //let form2Message = document.querySelector('#form2-message');\r\n    let form3Phone = document.querySelector('#form3-phone');\r\n    let form3Email = document.querySelector('#form3-email');\r\n    \r\n\r\n    let forms = document.querySelectorAll('form');\r\n    //console.log(forms);\r\n    let form2Message = document.querySelector('#form2-message');\r\n    //console.log(form2Message);\r\n    \r\n///[а-яА-Я]+\\-\\s/g\r\n    form2Message.addEventListener('input', (e) => {\r\n\r\n    e.target.value = e.target.value.replace(/[^а-яА-Я+\\-\\s]+/g, \"\");\r\n\r\n});\r\n    forms.forEach((form) => {\r\n        form.addEventListener('submit', (e) => {\r\n            e.preventDefault();\r\n        });\r\n        let inputs = form.querySelectorAll('input');\r\n        let inputsText = form.querySelectorAll('input[type=\"text\"]');\r\n        let inputsEmail = form.querySelectorAll('input[type=\"email\"]');\r\n        let inputsPhone = form.querySelectorAll('input[type=\"tel\"]');\r\n        //console.log(inputsEmail);\r\n        for(let inputText of inputsText) {\r\n                //console.log(inputText);\r\n            inputText.addEventListener('input', (e) => {\r\n\r\n                e.target.value = e.target.value.replace(/[^а-яА-Я+\\-\\s]+/g, \"\");\r\n                \r\n            });\r\n        }\r\n        for(let inputEmail of inputsEmail) {\r\n\r\n            inputEmail.addEventListener('input', (e) => {\r\n                e.target.value = e.target.value.replace(/[^a-zA-Z0-9+\\_\\@\\-\\!\\*\\~\\'\\.]+/g, \"\");\r\n            });        \r\n        }\r\n\r\n        for(let inputPhone of inputsPhone) {\r\n            inputPhone.addEventListener('input', (e) => {\r\n\r\n                e.target.value = e.target.value.replace(/[^\\d\\-()]/g, \"\");\r\n                \r\n            });\r\n        }\r\n        \r\n    });\r\n\r\n    calcSquare.addEventListener('input', (e) => {\r\n\r\n        e.target.value = e.target.value.replace(/[^\\d+]/g, \"\");\r\n\r\n    });\r\n    calcCount.addEventListener('input', (e) => {\r\n\r\n        e.target.value = e.target.value.replace(/[^\\d+]/g, \"\");\r\n\r\n    });\r\n\r\n    calcDay.addEventListener('input', (e) => {\r\n\r\n        e.target.value = e.target.value.replace(/[^\\d+]/g, \"\");\r\n\r\n    });\r\n\r\n    \r\n\r\n    /*form1.addEventListener('submit', (e) => {\r\n        e.preventDefault();\r\n        let isError = false;\r\n   \r\n        if (/[a-zA-Z0-9+\\_\\@\\-\\!\\*\\~\\'\\.]+/g.test(form1Email.value) && form1Email.value !== \"\") {\r\n            alert('В инпуте только латиница, цифры и спецсимволы');\r\n        } else {\r\n            isError = true;\r\n        }\r\n\r\n        if (/[\\d\\-()]/g.test(form1Phone.value) && form1Phone.value !== \"\") {\r\n            alert('В инпуте только цифры, дефис и скобки');\r\n        } else {\r\n            isError = true;\r\n        }\r\n\r\n        if (!isError) {\r\n            alert(\"Данные отправлены!\");\r\n        }\r\n        \r\n    });\r\n\r\n    form2.addEventListener('submit', (e) => {\r\n        e.preventDefault();\r\n        let isError2 = false;\r\n\r\n        if (/[a-zA-Z0-9+\\_\\@\\-\\!\\*\\~\\'\\.]+/g.test(form2Email.value) && form2Email.value !== \"\") {\r\n            alert('В инпуте только латиница, цифры и спецсимволы');\r\n        } else {\r\n            isError2 = true;\r\n        }\r\n\r\n        if (/[\\d\\-()]/g.test(form2Phone.value) && form2Phone.value !== \"\") {\r\n            alert('В инпуте только цифры, дефис и скобки');\r\n        } else {\r\n            isError2 = true;\r\n        }\r\n\r\n        if (/[а-яА-Я]+\\-\\s/g.test(form2Message.value)) {\r\n            alert('В инпуте только кириллица, дефис и пробел');\r\n        } else {\r\n            isError2 = true;\r\n        }\r\n\r\n        if (!isError2) {\r\n            alert(\"Данные отправлены!\");\r\n        }\r\n        \r\n    });\r\n\r\n    form3.addEventListener('submit', (e) => {\r\n        e.preventDefault();\r\n        let isError3 = false;\r\n\r\n        if (/[\\d\\-()]/g.test(form3Phone.value) && form3Phone.value !== \"\") {\r\n            alert('В инпуте только цифры, дефис и скобки');\r\n        } else {\r\n            isError3 = true;\r\n        }\r\n\r\n        if (/[a-zA-Z0-9+\\_\\@\\-\\!\\*\\~\\'\\.]+/g.test(form3Email.value) && form3Email.value !== \"\") {\r\n            alert('В инпуте только латиница, цифры и спецсимволы');\r\n        } else {\r\n            isError3 = true;\r\n        }\r\n\r\n        if (!isError3) {\r\n            alert(\"Данные отправлены!\");\r\n        }\r\n\r\n\r\n    });*/\r\n};\r\n\r\nmodule.exports = validate;\r\n\n\n//# sourceURL=webpack:///./modules/validate.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst validate = () => {\r\n\r\n    const calcSquare = document.querySelector('.calc-square');\r\n    const calcCount = document.querySelector('.calc-count');\r\n    const calcDay = document.querySelector('.calc-day');\r\n    \r\n    \r\n\r\n    const forms = document.querySelectorAll('form');\r\n\r\n    forms.forEach((form) => {\r\n        \r\n        const inputText = form.querySelector('input[type=\"text\"]');\r\n        const inputEmail = form.querySelector('input[type=\"email\"]');\r\n        const inputPhone = form.querySelector('input[type=\"tel\"]');\r\n\r\n        if (form.classList.contains('footer-form')) {\r\n            const inputMessage = form.querySelector('#form2-message');\r\n            inputMessage.addEventListener('input', (e) => {\r\n                e.target.value = e.target.value.replace(/[^а-яА-Я+\\-\\s]+/g, \"\");\r\n            });\r\n        }\r\n\r\n            inputText.addEventListener('input', (e) => {\r\n\r\n                e.target.value = e.target.value.replace(/[^а-яА-Я+\\-\\s]+/g, \"\");\r\n                \r\n            });\r\n\r\n            inputEmail.addEventListener('input', (e) => {\r\n                e.target.value = e.target.value.replace(/[^a-zA-Z0-9+\\_\\@\\-\\!\\*\\~\\'\\.]+/g, \"\");\r\n            });        \r\n\r\n            inputPhone.addEventListener('input', (e) => {\r\n\r\n                e.target.value = e.target.value.replace(/[^\\d\\-()]/g, \"\");\r\n                \r\n            });\r\n        //}\r\n        \r\n    });\r\n\r\n    calcSquare.addEventListener('input', (e) => {\r\n\r\n        e.target.value = e.target.value.replace(/[^\\d+]/g, \"\");\r\n\r\n    });\r\n    calcCount.addEventListener('input', (e) => {\r\n\r\n        e.target.value = e.target.value.replace(/[^\\d+]/g, \"\");\r\n\r\n    });\r\n\r\n    calcDay.addEventListener('input', (e) => {\r\n\r\n        e.target.value = e.target.value.replace(/[^\\d+]/g, \"\");\r\n\r\n    });\r\n\r\n};\r\n\r\n//module.exports = validate;\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validate);\r\n\n\n//# sourceURL=webpack:///./modules/validate.js?");
 
 /***/ })
 
@@ -84,6 +99,35 @@ eval("const validate = () => {\r\n\r\n    let calcSquare = document.querySelecto
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	

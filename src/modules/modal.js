@@ -1,7 +1,6 @@
 const modal = () => {
     const modal1 = document.querySelector('.popup');
     const buttons = document.querySelectorAll('.popup-btn');
-    const closeBtn = modal1.querySelector('.popup-close');
     const width = document.documentElement.clientWidth;
 
     let  idAnimate;
@@ -32,12 +31,6 @@ const modal = () => {
         });
     });
 
-    closeBtn.addEventListener('click', () => {
-        modal1.style.display = '';
-        modal1.style.opacity = 0;
-        count = 0;
-    });
-
     function myAnimate() {
         count = count + 0.01;
         if (count < 1) {
@@ -46,6 +39,17 @@ const modal = () => {
             clearInterval(idAnimate);
         }
     }
+
+    modal1.addEventListener('click', (e) => {
+
+        if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
+            //console.log('мимо');
+            modal1.style.display = '';
+            modal1.style.opacity = 0;
+            count = 0;
+        }
+    });
 }
 
-module.exports = modal;
+//module.exports = modal;
+export default modal;
