@@ -2,10 +2,24 @@ const slider = () => {
 
     const sliderBlock = document.querySelector('.portfolio-content');
     const slides = document.querySelectorAll('.portfolio-item');
-    const dots = document.querySelectorAll('.dot');
-
+    //const dots = document.querySelectorAll('.dot');
+    let dot = [];
+    let dots;
+    const timerInterval = 2000;
     let currentSlide = 0;
     let interval;
+    let parentDots = document.querySelector('.portfolio-dots');
+
+    let addDots = () => {
+        for (let i = 0; i < slides.length; i++) {
+            dot[i] = document.createElement('li');
+            dot[i].classList.add('dot');
+            parentDots.appendChild(dot[i]);
+        }
+    }
+
+    addDots();
+    dots = document.querySelectorAll('.dot');
 
     const prevSlide = (elems, index, strClass) => {
         elems[index].classList.remove(strClass);
@@ -29,8 +43,8 @@ const slider = () => {
         nextSlide(dots, currentSlide, 'dot-active');
     }
 
-    const startSlide = () => {
-        interval = setInterval(autoSlide, 2000);
+    const startSlide = (timer = 1500) => {
+        interval = setInterval(autoSlide, timer);
     }
 
     const stopSlide = () => {
@@ -75,20 +89,20 @@ const slider = () => {
     });
 
     sliderBlock.addEventListener('mouseenter', (e) => {
-        console.log(e.target);
+        
         if (e.target.matches('.dot, .portfolio-btn')) {
-            console.log(e.target);
+            stopSlide();
         }
     }, true);
 
     sliderBlock.addEventListener('mouseleave', (e) => {
-        console.log(e.target);
+       
         if (e.target.matches('.dot, .portfolio-btn')) {
-            console.log(e.target);
+            startSlide(timerInterval);
         }
     }, true);
 
-    startSlide();
+    startSlide(timerInterval);
 }
 
 export default slider;
