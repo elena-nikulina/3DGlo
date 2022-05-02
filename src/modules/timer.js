@@ -41,4 +41,5 @@ const timer = (deadline) => {//oneModule
 
 }
 
-module.exports = timer;//oneModule
+//module.exports = timer;
+export default timer;

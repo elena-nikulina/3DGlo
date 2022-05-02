@@ -1,3 +1,5 @@
+import { animate } from './helpers';
+
 const modal = () => {
     const modal1 = document.querySelector('.popup');
     const buttons = document.querySelectorAll('.popup-btn');
@@ -17,7 +19,18 @@ const modal = () => {
 
                 if (width > 768) {
 
-                    myAnimate();
+                   // myAnimate();
+                   setTimeout(() => {
+                       animate({
+                           duration: 1000,
+                           timing(timeFraction) {
+                               return timeFraction;
+                           },
+                           draw(progress) {
+                            modal1.style.opacity = progress;
+                           }
+                       });
+                   }, 1500);
                 
                 } else {
                     modal1.style.display = 'block';
