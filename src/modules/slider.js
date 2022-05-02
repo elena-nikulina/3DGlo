@@ -19,6 +19,7 @@ const slider = () => {
     }
 
     addDots();
+    dot[0].classList.add('dot-active');
     dots = document.querySelectorAll('.dot');
 
     const prevSlide = (elems, index, strClass) => {
