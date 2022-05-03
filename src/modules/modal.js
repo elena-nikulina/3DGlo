@@ -8,39 +8,41 @@ const modal = () => {
     let  idAnimate;
     let count = 0;
 
+    const transperentModal = () => {
+                
+
+
+        if (width > 768) {
+
+           // myAnimate();
+           
+               animate({
+                   duration: 1000,
+                   timing(timeFraction) {
+                       return timeFraction;
+                   },
+                   draw(progress) {
+                    modal1.style.opacity = progress;
+                   }
+               });
+           
+        
+        } else {
+            modal1.style.display = 'block';
+            modal1.style.opacity = 1;
+        }
+        
+
+    }
+
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             modal1.style.opacity = 0;
             modal1.style.display = 'block';
             
-            const transperentModal = () => {
-                
-
-
-                if (width > 768) {
-
-                   // myAnimate();
-                   setTimeout(() => {
-                       animate({
-                           duration: 1000,
-                           timing(timeFraction) {
-                               return timeFraction;
-                           },
-                           draw(progress) {
-                            modal1.style.opacity = progress;
-                           }
-                       });
-                   }, 1500);
-                
-                } else {
-                    modal1.style.display = 'block';
-                    modal1.style.opacity = 1;
-                }
-                
+            transperentModal();
         
-            }
-        
-            idAnimate = setInterval(transperentModal, 10);
+            //idAnimate = setInterval(transperentModal, 10);
         });
     });
 
