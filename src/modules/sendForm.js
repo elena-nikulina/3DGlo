@@ -18,19 +18,19 @@ const sendForm = ({formId, someElem = []}) => {
             }
         });*/
         list.forEach(inputPhone => {
-            if (/^[0-9]+\/+()\-/g) {
+            if (/^[0-9]+\/+()\-/g.test(inputPhone)) {
                 success = false;
                 alert('Номер телефона не валиден!');
             }
         });
         list.forEach(inputName => {
-            if (/^[а-яА-ЯёЁ]+\/s/g) {
+            if (/^[а-яА-ЯёЁ]+\/s/g.test(inputName)) {
                 success = false;
                 alert('Имя не валидно!');
             }
         });
         list.forEach(inputMessage => {
-            if (/^[а-яА-ЯёЁ0-9]+\/s\.\,\!\?/g) {
+            if (/^[а-яА-ЯёЁ0-9]+\/s\.\,\!\?/g.test(inputMessage)) {
                 success = false;
                 alert('Сообщение не валидно!');
             }
