@@ -1,9 +1,15 @@
 const sendForm = ({formId, someElem = []}) => {
     const form = document.getElementById(formId);
     const statusBlock = document.createElement('div');
-    const loadText = 'Загрузка...';
-    const errorText = 'Ошибка...';
-    const successText = 'Спасибо! Наш менеджер с вами свяжется.';
+    let loadText = 'Загрузка...';
+    let errorText = 'Ошибка...';
+    let successText = 'Спасибо! Наш менеджер с вами свяжется.';
+
+    /*if (input.id == 'form2-message') {
+        successText.style.color = '#fff';
+        errorText.style.color = '#fff';
+        loadText.style.color = '#fff';
+    }*/
 
     const valid = (list) => {
 
@@ -87,8 +93,11 @@ const sendForm = ({formId, someElem = []}) => {
         }
         form.addEventListener('submit', (event) => {
             event.preventDefault();
+
+            statusBlock.style.color = '#fff';
     
             submitForm();
+            
             
         });
     }
